@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    //const correctUsername = "admin";
+    //const correctPassword = "123456";
+//let inputUsername = "admin";   // 模擬輸入的帳號
+//let inputPassword = "abc1256";  // 模擬輸入的密碼
+    //if (inputUsername === correctUsername && inputPassword === correctPassword) {
+    //console.log("帳號正確");
+    //}else if (inputUsername === correctUsername && inputPassword !== correctPassword) {
+    //console.log("密碼錯誤");
+    //}
+    //分隔驗
+var correctUsername = "admin";
+var correctPassword = "123456";
+var inputUsername = "admi";   // 模擬輸入的帳號
+var inputPassword = "abc123";  // 模擬輸入的密碼 
+
+if (inputUsername === correctUsername && inputPassword === correctPassword) {
+    console.log("帳密正確");
+} else if (inputUsername === correctUsername && inputPassword !== correctPassword) {
+    console.log("密碼錯誤");
+} else if (inputUsername !== correctUsername && inputPassword === correctPassword) {
+    console.log("帳號錯誤");
+} else {
+    console.log("帳密都錯");
+}
+
+
+
+</script>
+</body>
+</html>
