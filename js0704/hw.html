@@ -16,19 +16,45 @@
 第4次：55 => 太小了（提示：55-80）
 第5次：60 => 猜對了 </p>
 
-<script>
+ <input type="number" id="guessInput" placeholder="輸入你的猜測">
+  <button onclick="checkGuess()">猜！</button>
 
+  <p id="message">請輸入數字開始遊戲</p>
+  <p id="chance"></p>
 
+  <script>
+    let answer = Math.floor(Math.random() * 100) + 1; // 答案：1~100
+    let chances = 5; // 機會次數
 
+    function checkGuess() {
+      const input = document.getElementById("guessInput");
+      const message = document.getElementById("message");
+      const chance = document.getElementById("chance");
 
+      let guess = Number(input.value);
 
+      if (guess < 1 || guess > 100 || isNaN(guess)) {
+        message.textContent = "❗ 請輸入 1 ~ 100 的整數";
+        return;
+      }
 
+      chances--;
 
+      if (guess === answer) {
+        message.innerHTML = "🎉 恭喜猜對了！答案就是 " + answer;
+        input.disabled = true;
+      } else if (chances === 0) {
+        message.innerHTML = "💥 遊戲結束！正確答案是 " + answer;
+        input.disabled = true;
+      } else if (guess > answer) {
+        message.textContent = "太大了！再試一次～";
+      } else {
+        message.textContent = "太小了！再試一次～";
+      }
 
-
-
-</script>
-
-
+      chance.textContent = "剩下機會：" + chances + " 次";
+      input.value = ""; // 清空輸入框
+    }
+  </script>
 </body>
 </html>
