@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 請輸入成績N次, 直到輸入-1時結束
+並統計出如下
+及格人數
+及格人數
+全班總分
+全班平均 -->
+<script>
+        var total = 0;         // 全班總分
+        var count = 0;         // 總人數
+        var passCount = 0;     // 及格人數
+        var failCount = 0;     // 不及格人數
+
+        while (1) {
+            var score = prompt("請輸入分數（輸入 -1 結束）");
+            score = Number(score); // 將輸入轉為數字
+
+            if (score === -1) {
+                break; // 結束迴圈
+            }
+
+            if (isNaN(score) || score < 0 || score > 100) {
+                alert("請輸入 0~100 的有效成績，或輸入 -1 結束");
+                continue;
+            }
+
+            total += score;
+            count++;
+
+            if (score >= 60) {
+                passCount++;
+            } else {
+                failCount++;
+            }
+        }
+
+        // 顯示統計結果
+        if (count > 0) {
+            var average = total / count;
+            alert(
+                "及格人數: " + passCount + "\n" +
+                "不及格人數: " + failCount + "\n" +
+                "全班總分: " + total + "\n" +
+                "全班平均: " + average.toFixed(2)
+            );
+        } else {
+            alert("尚未輸入任何成績");
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
