@@ -7,29 +7,24 @@
 </head>
 <body>
   <h1>猜數字遊戲（1~100）</h1>
-  <p>請使用亂數產生一個值（1-100）<br>
-    每次錯誤時，出現提示如下：<br>
-    例如：<br>
-    亂數值：60<br>
-    第1次：50 => 太小了（提示：50-100）<br>
-    第2次：90 => 太大了（提示：50-90）<br>
-    第3次：80 => 太大了（提示：50-80）<br>
-    第4次：55 => 太小了（提示：55-80）<br>
-    第5次：60 => 猜對了！
+  <p>
+    系統會產生一個 1~100 的亂數<br>
+    每次錯誤時，會提示你「太大/太小」與目前的範圍<br>
+    你最多有 5 次機會！
   </p>
 
   <input type="number" id="guessInput" placeholder="輸入你的猜測">
-  <button onclick="checkGuess()">確定！</button>
-  <button onclick="initGame()">再玩一次</button>
+  <button id="checkBtn" onclick="checkGuess()">確定！</button>
+  <button id="restartBtn" onclick="initGame()" style="display: none;">再玩一次</button>
 
   <p id="message">請輸入數字開始遊戲</p>
   <p id="chance"></p>
+  <div id="log"></div> <!-- 🔹 用來顯示每次的猜測紀錄 -->
 
   <script>
     let answer;
     let chances;
-    let min; 
-    let max;
+    let min, max;
 
     function initGame() {
       answer = Math.floor(Math.random() * 100) + 1;
@@ -41,12 +36,19 @@
       document.getElementById("chance").textContent = "剩下機會：" + chances + " 次";
       document.getElementById("guessInput").disabled = false;
       document.getElementById("guessInput").value = "";
+      document.getElementById("restartBtn").style.display = "none";
+      document.getElementById("checkBtn").style.display = "inline";
+      document.getElementById("log").innerHTML = ""; // 🔸 重設紀錄
     }
 
     function checkGuess() {
       const input = document.getElementById("guessInput");
       const message = document.getElementById("message");
       const chance = document.getElementById("chance");
+      const restartBtn = document.getElementById("restartBtn");
+      const checkBtn = document.getElementById("checkBtn");
+      const log = document.getElementById("log");
+
       let guess = Number(input.value);
 
       if (input.disabled) return;
@@ -57,19 +59,36 @@
       }
 
       chances--;
+      let logMessage = "";
 
       if (guess === answer) {
-        message.innerHTML = `🎉 第${5 - chances}次：${guess} => 猜對了！答案是 ${answer}`;
+        logMessage = `🎉 第${5 - chances}次：${guess} => 猜對了！答案是 ${answer}`;
+        message.innerHTML = logMessage;
         input.disabled = true;
+        restartBtn.style.display = "inline";
+        checkBtn.style.display = "none";
       } else if (chances === 0) {
+        if (guess > answer) max = guess;
+        if (guess < answer) min = guess;
+        logMessage = `第${5 - chances}次：${guess} => ${guess > answer ? "太大了" : "太小了"}（提示：${min}-${max}）`;
         message.innerHTML = `💥 遊戲結束！你已經猜了 5 次。正確答案是 ${answer}`;
         input.disabled = true;
+        restartBtn.style.display = "inline";
+        checkBtn.style.display = "none";
       } else if (guess > answer) {
         max = guess;
-        message.textContent = `第${5 - chances}次：${guess} => 太大了（提示：${min}-${max}）`;
+        logMessage = `第${5 - chances}次：${guess} => 太大了（提示：${min}-${max}）`;
+        message.textContent = logMessage;
       } else {
         min = guess;
-        message.textContent = `第${5 - chances}次：${guess} => 太小了（提示：${min}-${max}）`;
+        logMessage = `第${5 - chances}次：${guess} => 太小了（提示：${min}-${max}）`;
+        message.textContent = logMessage;
+      }
+
+      if (logMessage) {
+        const entry = document.createElement("p");
+        entry.textContent = logMessage;
+        log.appendChild(entry); // 🔸 加入紀錄
       }
 
       chance.textContent = `剩下機會：${chances} 次`;
@@ -77,7 +96,7 @@
       input.focus();
     }
 
-    // 初始化遊戲（第一次載入）
+    // 頁面載入時初始化遊戲
     initGame();
   </script>
 </body>
