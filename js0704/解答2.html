@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>猜數字大小</h2>
+    <p>
+        請輸入任意數:
+        <input type="number" id="txtNo">
+        <button onclick="btnClick()">確定</button>
+    </p>
+    
+    <p id="result"></p>
+
+    <script>
+        //取得顯示位置
+        let result=document.getElementById("result")
+        //取亂數
+        let rd=Math.floor(Math.random()*100)+1
+        console.log(rd);
+        let min=1;
+        let max=100;
+        count=0;
+
+
+        function btnClick(){
+            
+            let txtNo=document.getElementById("txtNo");
+            let keyNum=parseInt(txtNo.value);
+
+            if(keyNum===rd){
+                result.innerHTML="Bingo<br>";
+                return;//結束function
+            }
+            if(keyNum>rd){
+                max=keyNum
+                result.innerHTML+=`第${count}次，太大了，提示:${min}-${max}<br>`;
+            }else{
+                min=keyNum;
+                result.innerHTML+=`第${count}次，太小了，提示:${min}-${max}<br>`;
+            }
+
+            
+        }
+
+
+    </script>
+</body>
+</html>
