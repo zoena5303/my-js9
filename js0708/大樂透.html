@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h2>大樂透號碼產生器</h2>
+<button onclick="generateLotto()">產生號碼</button>
+<p id="lottoResult">點擊按鈕產生大樂透號碼</p>
+
+<script>
+function generateLotto() {
+    let firstArea = [];
+
+    // 產生第一區 6 個不重複號碼（1~49）
+    while (firstArea.length < 6) {
+        let num = Math.floor(Math.random() * 49) + 1;
+        if (!firstArea.includes(num)) {
+            firstArea.push(num);
+        }
+    }
+    firstArea.sort((a, b) => a - b); // 由小到大排序
+
+    // 產生第二區（特別號），1~49，但不能和第一區重複
+    let secondArea;
+    do {
+        secondArea = Math.floor(Math.random() * 49) + 1;
+    } while (firstArea.includes(secondArea));
+
+    // 顯示結果
+    document.getElementById("lottoResult").innerText =
+        "第一區號碼: " + firstArea.join("、") + "　｜　第二區（特別號）: " + secondArea;
+}
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>今彩539號碼產生器</h2>
+<button onclick="generate539()">產生號碼</button>
+<p id="result539">點擊按鈕產生今彩539號碼</p>
+
+<script>
+function generate539() {
+    let numbers = [];
+    while (numbers.length < 5) {
+        let num = Math.floor(Math.random() * 39) + 1;
+        if (!numbers.includes(num)) numbers.push(num);
+    }
+    numbers.sort((a, b) => a - b);
+
+    document.getElementById("result539").innerText =
+        "號碼: " + numbers.join("、");
+}
+</script>
+
+</body>
+</html>
