@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威力彩號碼產生器</title>
+</head>
+<body>
+    
+ <h2>威力彩號碼產生器</h2>
+<button onclick="generatePowerLottery()">產生號碼</button>
+<p id="powerResult">點擊按鈕產生威力彩號碼</p>
+
+<script>
+function generatePowerLottery() {
+    // 第一區：產生 6 個 1~38 的不重複號碼
+    let frontArea = [];
+    while (frontArea.length < 6) {
+        let num = Math.floor(Math.random() * 38) + 1;
+        if (!frontArea.includes(num)) {
+            frontArea.push(num);
+        }
+    }
+    frontArea.sort((a, b) => a - b); // 由小到大排序
+
+    // 第二區：產生 1 個 1~8 的號碼（不重複問題不用考慮）
+    let secondArea = Math.floor(Math.random() * 8) + 1;
+
+    // 顯示結果
+    document.getElementById("powerResult").innerText =
+        "第一區號碼: " + frontArea.join("、") + "　｜　第二區（特別號）: " + secondArea;
+}
+</script>

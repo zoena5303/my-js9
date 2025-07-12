@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>找出陣列中的最大跟最小值</p>
+<script>
+        // 找出陣列中最大值與最小值
+        arr1 = [5, 60, 3, 90, 33, 1, 100];
+
+
+        // for<br>
+        // for of<br>
+        // forEach<br>
+// 1. 使用 for
+let max1 = arr1[0];
+let min1 = arr1[0];
+for (let i = 1; i < arr1.length; i++) {
+    if (arr1[i] > max1) max1 = arr1[i];
+    if (arr1[i] < min1) min1 = arr1[i];
+}
+console.log("使用 for:");
+console.log("最大值:", max1);
+console.log("最小值:", min1);
+
+// 2. 使用 for...of
+let max2 = arr1[0];
+let min2 = arr1[0];
+for (let num of arr1) {
+    if (num > max2) max2 = num;
+    if (num < min2) min2 = num;
+}
+console.log("使用 for...of:");
+console.log("最大值:", max2);
+console.log("最小值:", min2);
+
+// 3. 使用 forEach
+let max3 = arr1[0];
+let min3 = arr1[0];
+arr1.forEach(function(num) {
+    if (num > max3) max3 = num;
+    if (num < min3) min3 = num;
+});
+console.log("使用 forEach:");
+console.log("最大值:", max3);
+console.log("最小值:", min3);
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

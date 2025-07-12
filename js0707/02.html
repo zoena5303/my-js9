@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>陣列</h1><hr>
+    
+<script>
+//建立一個陣列,再存放任意五個值
+/*let arr1=[1,2,3,4,5];
+console.log(arr1)
+//使用迴圈，產生1-5的數字到陣列中
+for(let i=0;i<arr1.length;i++){
+    console.log(arr1[i]);
+}
+/*for(let i=0;i<=4;i++){
+    console.log(arr1[i]);
+
+    for(let i=0;i<=arr1.length-1;i++){
+    console.log(arr1[i]);
+}(小於等於後面要-1縮短長度)
+}*/
+
+//建立一個陣列,再存放任意N個值
+let arr1=[10,200,30];
+console.log("排序前:"+arr1);
+
+//使用箭頭函式寫法
+arr1.sorte((a,b)){
+    //遞增排序
+    return a-b;
+}
+arr1.sorte((a,b))>{
+    //遞減排序
+    return b-a;
+}
+
+</script>
+
+</body>
+</html>
