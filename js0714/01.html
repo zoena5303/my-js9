@@ -2,65 +2,117 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
-    <h1>函式</h1>
-    <script>
-        //建立函式
-        //有參數,沒有傳回值
-        /*function sum(a, b) {
-            // let a=5;
-            //let b=3;
-            console.log(a + b);
-        }*/
+  <h1>函式</h1>
+  <hr>
+  請輸入姓名<input type="text" id="name">
+  <button onclick="sayHi4(name)">確定</button>
+  <p id="show"></p>
+  <script>
+    //建立函式
+    //有參數,沒有傳回值
+    /*function sum(a, b) {
+        // let a=5;
+        //let b=3;
+        console.log(a + b);
+    }*/
 
-        //有參數，有傳回值
-        function sum(a, b) {
-        // let =c=a+b;
-          //return c;
-            document.write(`${a}+${b}=`);
-          return a+b;
-        }
-
-
-
-
-
-        //呼叫函式
-        /*sum(5, 3);//8
-        sum(50, 30);//80
-        sum(-1, 3);//2
-        sum(-1, -3);//-4*/
-
-        /*console.log(sum(5, 3));//8
-        let tot=sum(50, 30);//80
-        document.write(``);sum*/
-
-        let n1=50;
-        let n2=30;
-        let tot=sum(n1,n2);//80
-        document.write(`${n1}+${n2}=${tot}`);
-        
-
-       // sum(-1, 3);//2
-        //sum(-1, -3);//-4*/
+    //有參數，有傳回值
+    function sum(a, b) {
+      // let =c=a+b;
+      //return c;
+      document.write(`${a}+${b}=`);
+      return a + b;
+    }
 
 
 
 
 
-        /*let a=5;
-        let b=3;
-        console.log(a+b);
+    //呼叫函式
+    /*sum(5, 3);//8
+    sum(50, 30);//80
+    sum(-1, 3);//2
+    sum(-1, -3);//-4*/
 
-        let c=50;
-        let d=30;
-        console.log(c+d)*/
-    </script>
+    /*console.log(sum(5, 3));//8
+    let tot=sum(50, 30);//80
+    document.write(``);sum*/
+
+    /*let n1=50;
+    let n2=30;
+    let tot=sum(n1,n2);//80
+    document.write(`${n1}+${n2}=${tot}`);*/
+
+
+    //無參數，無傳回值
+    //alert("Hi");
+    function sayHi() {
+      alert("Hi");
+
+    }
+
+    // let uName = prompt("請輸入姓名")
+    // sayHi();
+
+    //有參數，無傳回值
+    function sayHi2(name) {
+      alert("Hi" + name);
+
+    }
+    let uName = prompt("請輸入姓名")
+    sayHi2(userName)
+
+    // sum(-1, 3);//2
+    //sum(-1, -3);//-4*/
+
+
+
+
+
+    /*let a=5;
+    let b=3;
+    console.log(a+b);
+
+    let c=50;
+    let d=30;
+    console.log(c+d)*/
+
+
+    //有參數，無傳回值(for 表單文字方塊)
+    function sayHi3() {
+      alert("Hi" + name);
+      //取得文字方塊位置
+      let name = document.getElementById("name")
+      //取得顯示資料
+      let show = document.getElementById("show")
+      //show.textContent="Hi,<br>"+name.vaule;
+      //show.innerText="Hi,\n"+name.vaule;
+      //純文字
+      show.textContent = "Hi," + name.vaule;
+      //含有HTML標籤
+      show.innerHTML = "Hi,<br>" + name.vaule;
+      //使用跳脫字元
+      show.innerText = "Hi,\n>" + name.vaule;
+    }
+
+    let name = document.getElementById("name").vaule
+    console.log("name" + name);
+
+    function sayHi4(name) {
+      //取得顯示資料
+      let show = document.getElementById("show")
+      show.innerText = "Hi" + userName;
+
+    }
+
+
+  </script>
 </body>
 
 </html>
