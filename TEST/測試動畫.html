@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>28天肌膚改善效果</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+      margin: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+
+    .highlight {
+      font-size: 1.5em;
+      color: #e87b9d;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    /* 使用前後對比圖區塊 */
+    .compare-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      height: 400px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .compare-wrapper img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      transition: all 0.5s ease;
+    }
+
+    .after {
+      clip-path: inset(0 50% 0 0);
+      z-index: 2;
+    }
+
+    .slider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #fff;
+      z-index: 3;
+      cursor: ew-resize;
+      transform: translateX(-50%);
+    }
+
+    .note {
+      font-size: 0.9em;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>28天肌膚改善效果</h1>
+
+  <div class="section">
+    <h2>斑印 / 痘印淡化</h2>
+    <ul>
+      <li>斑印淡化：<span class="highlight" data-value="-52.32">0%</span></li>
+      <li>痘印淡化：<span class="highlight" data-value="-23.76">0%</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>14天透亮牛奶肌</h2>
+    <ul>
+      <li>光澤度提升：<span class="highlight" data-value="29.18">0%</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>修復泛紅</h2>
+    <ul>
+      <li>泛紅減少：<span class="highlight" data-value="-17.44">0%</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>提升彈性</h2>
+    <ul>
+      <li>肌膚彈性增加：<span class="highlight" data-value="27.49">0%</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>使用前後對比</h2>
+    <ul>
+      <li>14天：祛黃、控油、嫩白</li>
+      <li>21天：祛紅、舒敏</li>
+    </ul>
+
+    <!-- 使用前後對比圖 -->
+    <div class="compare-wrapper" id="compare">
+      <img src="before.jpg" alt="使用前" class="before" />
+      <img src="after.jpg" alt="使用後" class="after" id="afterImage"/>
+      <div class="slider" id="slider"></div>
+    </div>
+  </div>
+
+  <p class="note">*數據為實驗室測試結果，實際效果因人而異。</p>
+
+  <script>
+    // 數字跳動動畫
+    function animateValue(el, finalValue, duration = 1000) {
+      const isNegative = finalValue < 0;
+      const absValue = Math.abs(finalValue);
+      const start = 0;
+      const steps = 30;
+      const increment = absValue / steps;
+      let current = 0;
+      let count = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        count++;
+        if (count >= steps) {
+          current = absValue;
+          clearInterval(timer);
+        }
+        el.textContent = (isNegative ? "-" : "+") + current.toFixed(2) + "%";
+      }, duration / steps);
+    }
+
+    // 進場觸發動畫
+    const highlights = document.querySelectorAll(".highlight");
+    const options = {
+      threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const val = parseFloat(el.dataset.value);
+          if (!el.classList.contains("animated")) {
+            el.classList.add("animated");
+            el.style.opacity = 1;
+            animateValue(el, val);
+          }
+        }
+      });
+    }, options);
+
+    highlights.forEach(h => observer.observe(h));
+
+    // 使用前後滑桿控制
+    const compare = document.getElementById('compare');
+    const afterImage = document.getElementById('afterImage');
+    const slider = document.getElementById('slider');
+    let isDragging = false;
+
+    compare.addEventListener('mousedown', () => isDragging = true);
+    window.addEventListener('mouseup', () => isDragging = false);
+    compare.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const rect = compare.getBoundingClientRect();
+      let pos = e.clientX - rect.left;
+      let percent = Math.max(0, Math.min(pos / rect.width, 1));
+      afterImage.style.clipPath = `inset(0 ${(1 - percent) * 100}% 0 0)`;
+      slider.style.left = `${percent * 100}%`;
+    });
+  </script>
+
+</body>
+</html>
