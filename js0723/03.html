@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //建立物件
+        // var userid;
+        // var username;
+        // var userpassword;
+        // var userHight;
+        // var userWeight;
+        // var userEmail;
+
+        //let+名稱(不能重複)
+        //var+名稱(可重複)
+
+        var user = {
+            //屬性成員
+            name: '阿沫',
+            age: 28,
+
+            //方法成員
+            showMsg: function () {
+                //調用同一個物件中的屬性成員
+                //方法1
+                console.log(`Hi,我是` + user.name + '!');
+                //方法2
+                console.log(`Hi,我是` + user.name + '!');
+            }
+        };
+        //取用(取得物件屬性)
+        //當明成打.的時候跑出物件名稱就是正確的
+        // console.log(`使用者姓名:${user.name}`)
+        // console.log(`使用者年齡:${user.age}歲`)
+        //取得物件名稱['物件名稱'};
+        //取得物件名稱["物件名稱"};
+        console.log(`使用者姓名2：${user['name']}`);
+        console.log(`使用者年齡2：${user["age"]}歲`);
+
+
+        //取得物件方法
+        user.showMsg();
+
+    </script>
+</body>
+
+</html>
