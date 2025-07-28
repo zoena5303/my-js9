@@ -7,21 +7,21 @@
 </head>
 <body>
     <!--  -->
-  <from id="myForm">
+  <form id="myForm">
     <!-- 核取方塊 -->
     <input type="checkbox"id="agree">我同意合約
     <!-- 訊息標示 -->
      <span id="msg"></span><br>
      <!-- 送出按鈕 -->
       <input type ="submit" value="送出">
-  </from>
+  </form>
   <script>
     // 取得表單
-    let myForm=document.querySelector("#myFrom")
+    let myForm=document.querySelector("#myForm");
     // 取得核取方塊
-    let agree=document.querySelector("#agree")
+    let agree=document.querySelector("#agree");
     
-    myForm.addEventListener('sumbit',(e)=>{
+    myForm.addEventListener('submit',(e)=>{
         //檢查是否有沒有被勾選
         if(!agree.checked){
             msg.textContent="必須選取「我同意合約」";
