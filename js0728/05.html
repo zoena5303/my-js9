@@ -21,10 +21,11 @@
     // 取得核取方塊
     let agree=document.querySelector("#agree")
     
-    myForm.addEventListener('sumbit',()=>{
+    myForm.addEventListener('sumbit',(e)=>{
         //檢查是否有沒有被勾選
-        if(!large.checked){
+        if(!agree.checked){
             msg.textContent="必須選取「我同意合約」";
+            msg.style.color="red";
             e.preventDefault();//取消預設行為
         }
     })
