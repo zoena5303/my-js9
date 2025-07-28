@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  -->
+  <from id="myForm">
+    <!-- 核取方塊 -->
+    <input type="checkbox"id="agree">我同意合約
+    <!-- 訊息標示 -->
+     <span id="msg"></span><br>
+     <!-- 送出按鈕 -->
+      <input type ="submit" value="送出">
+  </from>
+  <script>
+    // 取得表單
+    let myForm=document.querySelector("#myFrom")
+    // 取得核取方塊
+    let agree=document.querySelector("#agree")
+    
+    myForm.addEventListener('sumbit',()=>{
+        //檢查是否有沒有被勾選
+        if(!large.checked){
+            msg.textContent="必須選取「我同意合約」";
+            e.preventDefault();//取消預設行為
+        }
+    })
+  </script>
+</body>
+</html>
