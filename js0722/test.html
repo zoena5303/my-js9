@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    練習5：使用function關鍵字宣告一個沒有名稱的函式，並指派給變數
+請傳送半徑，算出圓面積（pi*r*r），pi=3.14
+  // 匿名函式
+        let add2 = function (n1, n2) {
+            return n1 + n2;
+        }
+        console.log(add2(10, 8));
+
+
+    <script>
+// 使用 function 關鍵字宣告匿名函式，並指派給變數 getArea
+let getArea = function (radius) {
+  let pi = 3.14;
+  return pi * radius * radius;
+};
+
+// 範例：呼叫函式並印出結果
+console.log(getArea(5)); // 會輸出 78.5
+
+
+//建立一個長數的數值(執行中的質不能更改，依但更改就會出錯
+
+/*
+  // 匿名函式
+        let add2 = function (n1, n2) {
+            return n1 + n2;
+        }
+        console.log(add2(10, 8));
+
+請傳送半徑，算出圓面積（pi*r*r），pi=3.14
+        let getArea = function (r) {
+            // 建立一個常數的值（執行中的值，不能變更，一旦更改就會出錯）
+            const pi = 3.14;
+            return pi * r * r;
+        }
+        console.log(getArea(10));
+*/
+
+
+
+
+    </script>
+</body>
+</html>

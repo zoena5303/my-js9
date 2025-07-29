@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跑馬燈</title>
+</head>
+<body>
+    <!-- <marquee behavior="" direction=""
+    width="300" 
+    style="background-color: aquamarine;"
+      onmouseover="stop();"
+      onmouseout="start();"
+ >
+ Did yoy want to snowman~
+    </marquee> -->
+
+<!-- 事件的處理方式 -->
+ <!-- 標籤綁定 -->
+ <button type="button" onclick="alert('Hi')" >顯示秘密</button>
+ <button type="button" onclick="sayHi('Hi')" >這裡有秘密</button>
+ <script>
+function sayHi(str){
+    alert(str);
+}
+</script>
+<!-- 監聽事件 -->
+ <button type="button" id="btn1"width="300" >其實是這裡才有秘密</button>
+<script>
+//使用getElementById
+//letbtn1=document.getElementById("btn1")
+//使用querySelect+css符號
+let btn1=document.querySelector("#btn1")
+
+    //使用匿名函式
+// let btn1=document.getElementById("btn1")
+// btn1.addEventListener('click',function(){
+//     alert("Hi3");
+// })
+// 使用箭頭函式
+ btn1.addEventListener('click',()=>{
+    alert("Hi3")
+ })
+
+
+
+
+</script>
+
+</body>
+</html>

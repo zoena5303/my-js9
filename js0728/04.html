@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉選單</title>
+</head>
+
+<body>
+    <form>
+        <label for="url">請選擇網站</label>
+        <!--下拉式清單  -->
+        <select name="#" id="url">
+            <!-- 空連結表示方法:;網址後方不會有# -->
+            <option value="javascript">請選擇</option>
+            <option value="https://www.google.com">google</option>
+            <option value="https://www.momoshop.com.tw">MOMO</option>
+            <option value="https://shopee.tw/">蝦皮</option>
+
+
+
+        </select>
+        <script>
+            //取得下拉清單的位置
+            //沒特殊情況不要把自首大寫或是全大寫
+            let url = document.getElementById('url');
+
+
+
+            url.addEventListener('change', () => {
+                //檢查更換的value但值長度是否大於0
+                if (url.value.lenght > 0) {
+                    let newwin = open();//開新分頁
+                    newwin.location.href = url.value
+                }
+                //不會開新分頁
+                //location.href=url.value
+                //this.location.href = url.value
+            });
+
+        </script>
+
+
+    </form>
+</body>
+
+</html>
