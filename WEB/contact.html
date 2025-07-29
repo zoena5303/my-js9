@@ -1,33 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ZH-HANT-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>練習中</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>MY花室</title>    <!-- 出現在網址裡的名稱 -->
+    <!-- ./意思是在同一層裡 /代表下一層-->
+    <!-- #=html的id 只能用一次 用在比較重要的區塊大圖層上(主要區塊 表單元素 互動元件)但他跟class一樣的功能-->
+    
+    <link rel="stylesheet" href="./css/style.css"> 
 </head>
 <body>
-    <!-- 頁首區 -->
-     <!-- id&class的名稱，是自己命名的 -->
- <head id="topbar">
-    <!-- logo區 -->
-    <div class="logo">
-        <img src=".img" alt="logo">
+    <!-- 首頁區 -->
+    <!-- id&class的名稱是自己命名的 -->
+    <header id="topbar">
+        <!-- logo區 -->
+        <div class="logo">
+        <!-- alt認真一點描述這張圖片 但不能放在賣的物品 不然會被偵測為濫用關鍵字 會大扣分 可以不要寫內容 但不能刪掉 可以留空值 不然seo會很扣分 -->
+        <!-- alt通常會留空 後端會讓管理員做設定 -->
+            <img src="./images/logo_b.svg" alt="logo">
         </div>
-    <!-- 導覽區 -->
-     <!--  -->
-    <nav class="navigation"> 
-        <ul><!-- ul>li*6>a -->
-            <li><a href="./index.html">HOME</a></li>
-            <li><a href="">NEWS</a></li>
-            <li><a href="">SERVICE</a></li>
-            <li><a href="">ABOUT</a></li>
-            <li><a href="">VIDEO</a></li>
-            <li><a href="">CONTACT</a></li>
+        <!-- nav是導覽頁 -->
+        <nav class="navigation"></nav>
+        <!-- ul是無序的列表(點點列表) ol是有序的列表(1.2.3.數字列表) 他們會控制li在他們裡面-->
+        <!-- shift+alt+a可以單行註解 -->
+        
+        <!-- ICON選單 ul>li*3>a以下縮寫-->
+        <ul class="icon"> <!-- 幫他們命名這樣寫css可以針對他給不一樣的樣式 -->
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
         </ul>
-    </nav>
 
- </head>
- 
+        <!-- 主選單 -->
+        <ul class="menu">  <!-- ul>li*6>a (a是增加超連結的意思) 下面縮寫寫法-->
+            <li><a href="./index.html">HOME</a></li>  <!-- href是超連結 -->
+            <li><a href="#">NEWS</a></li>    <!-- 還不確定超連結要連去哪的時候會打# -->
+            <li><a href="#">SERVICE</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">VIDEO</a></li>
+            <li><a href="./contact.html">CONTACT</a></li>
+        </ul>
+    </header>
 </body>
 </html>
