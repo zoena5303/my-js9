@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+    科目:
+    <label><input type="checkbox" name="subject" value="HTML">HTML</label>
+    <label><input type="checkbox" name="subject" value="CSS">CSS</label>
+    <label><input type="checkbox" name="subject" value="JS">JS</label>
+    <input type="button" id="btn" value="送出">
+</form>
+<p id="result"></p>
+<script>
+    let btn = document.querySelector('#btn');
+let result = document.querySelector('#result');
+
+btn.addEventListener("click", function () {
+    let subject = document.getElementsByName("subject");
+    result.innerHTML = ""; // 清空前次結果
+
+    for (let i = 0; i < subject.length; i++) {
+        if (subject[i].checked) {
+            // 如果是 CSS，讓他的父元素 label 變色
+            if (subject[i].value === "CSS") {
+                subject[i].parentNode.style.color = "red";
+            }
+            result.innerHTML += subject[i].value + "<br>";
+        }
+    }
+});
+
+</script>
+</body>
+</html>
