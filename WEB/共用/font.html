@@ -6,9 +6,25 @@
     <title>基本表單區</title>
 </head>
 <body>
-    
+   
+    <!-- 搜尋的表單 -->
+     <h2>搜尋商品</h2>
     <!-- <form action="#"></form> -->
-    <form action="#" method="post"accept-charest></form>
-S
+    <form action="#" method="post"accept-charest="UTF-8">
+    <label for="search">搜尋</label>
+    <input type="search" name="search" id="search"size="15">
+    <input type="submit" value="搜尋"> 
+    </form>
+    
+    <!-- 會員資料修改表單 -->
+     <h2>會員資料修改</h2>
+     <small>「*」為必填</small>
+    <form action=""method="post"accept-charest="UTF-8" >
+        <label for="">姓名</label>
+        <!--autofocus必填欄位必須在視窗最上面顯示才能設定  -->
+        <input type="text" name="userdname" id="userdname"title="姓名欄位" placeholder="請輸入您的姓名" required>
+        
+
+    </form>
 </body>
 </html>
