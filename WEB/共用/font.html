@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>基本表單區</title>
+    <style>
+        form>*{
+            display: block;
+        }
+        label{
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
    
@@ -24,6 +32,83 @@
         <!--autofocus必填欄位必須在視窗最上面顯示才能設定  -->
         <input type="text" name="userdname" id="userdname"title="姓名欄位" placeholder="請輸入您的姓名" required>
         
+        <label for="userid">*身份證字號</label>
+        <input type="text"name="userid" title="身份證字號欄位"required readonly value="A123456789">
+
+         <label for="account">帳號(禁用)</label>
+        <input type="text"name="account" title="帳號欄位"required disabled value="zoea53038886">
+
+        <!-- ID&for不可重複名稱 -->
+         <label for="password">確認密碼</label>
+        <input type="password"name="password" id="password">
+   
+        <!-- multiple可輸入多個值用「，」隔開 -->
+        <label for="email">E-mail:</label>
+         <input type="email"name="email" id="email"required multiple>
+        
+
+          <label for="tel">連絡電話:</label>
+          <input type="tel"name="tel" id="tel" maxlength="10"> 
+
+        <label for="website">官方網站</label>
+         <input type="url"name="file" id="file" multiple>
+
+       <label for="file">上傳檔案</label>
+       
+       
+       
+       
+       
+         <label for="color">顏色</label>
+          <input type="color"name="color" id="color">
+          
+          <label for="number">購買數量</label>
+         <input type="number"name="number" id="number" style="width: 50px;">
+           <input type="range"name="" id="" >   <!--用滑快控制數字 -->
+
+
+           <label for="birthaday">生日</label>
+           <input type="date"name="birthaday" id="birthaday"> 
+
+
+           <!-- 下拉選單 -->
+            <label for="sex">性別:</label>
+            <select name="sex" id="sex">
+            <option value="">請選擇</option>
+            <option value="生理男">男</option>
+              <option value="生理女">女</option>
+         </select>
+
+    <!-- 群組標籤 -->
+     <label for="">其他類別:</label>
+         <select name="other" id="other">
+            <option value="">請選擇</option>
+           <!-- 分類 -->
+            <optgroup label="分類1">
+                <option value="">選項1</option>
+                 <option value="">選項2</option>
+                  <option value="">選項3</option>
+
+                  <optgroup label="分類2">
+                 <option value="">選項1</option>
+                 <option value="">選項2</option>
+                  <option value="">選項3</option>
+         </optgroup>
+
+            <!-- 單選按鈕 -->
+             <fieldset>
+                <legend>會員類型</legend>
+         <input type="radio" name="member-1"id="member-1" >
+         <label for="member-1">金卡會員</label>
+        <input type="radio" name="member-2"id="member-2" >
+         <label for="member-2">銀卡會員</label>
+         <input type="radio" name="member-3"id="member-1" >
+         <label for="member-3">銅卡會員</label>
+
+
+          </fieldset>
+         </select>
+
 
     </form>
 </body>
